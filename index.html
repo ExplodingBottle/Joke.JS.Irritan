@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Irritant! (0)</title>
+    <script type="text/javascript">
+        const times = 125;
+        const w = 200;
+        const h = 100;
+
+    </script>
+    <link rel="icon" href="favicon.ico">
+</head>
+
+<body">
+    Irritant hé...?
+    <script type="text/javascript">
+
+        try {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (!urlParams.has("d")) {
+                for (iterrator = 0; iterrator < times; iterrator++) {
+                    window.open(window.location.href + "?d=" + iterrator, "_blank", "fullscreen=no,toolbar=no,status=no,menubar=no,scrollbars=no,resizable=no,width=" + w + ",height=" + h);
+                }
+            } else {
+                document.getElementsByTagName("title")[0].innerText = "Irritant! (" + urlParams.get("d") + ")";
+
+            }
+        } catch (e) {
+
+        }
+        window.onfocus = move;
+        window.onload = move;
+        function move() {
+            var l = Math.floor(Math.random() * screen.width);
+            var t = Math.floor(Math.random() * screen.height);
+            window.moveTo(l, t);
+            window.resizeTo(w, h);
+            window.blur();
+            setTimeout(move, 100);
+        }
+
+    </script>
+    </body>
+
+</html>
