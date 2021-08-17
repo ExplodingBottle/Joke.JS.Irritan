@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="fr">
 
 <head>
     <meta charset="utf-8">
@@ -8,24 +8,24 @@
     <script type="text/javascript">
         const times = 125;
         const w = 200;
-        const h = 100;
+        const h = 120;
 
     </script>
     <link rel="icon" href="favicon.ico">
 </head>
 
 <body>
+    <img src="favicon.ico" alt=":-)">
     Irritant hé...?
     <script type="text/javascript">
 
         try {
-            const urlParams = new URLSearchParams(window.location.search);
-            if (!urlParams.has("d")) {
+            if (window.location.href.indexOf("?d=") == -1) {
                 for (iterrator = 0; iterrator < times; iterrator++) {
                     window.open(window.location.href + "?d=" + iterrator, "_blank", "fullscreen=no,toolbar=no,status=no,menubar=no,scrollbars=no,resizable=no,width=" + w + ",height=" + h);
                 }
             } else {
-                document.getElementsByTagName("title")[0].innerText = "Irritant! (" + urlParams.get("d") + ")";
+                document.getElementsByTagName("title")[0].innerText = "Irritant! (" + window.location.href.match("(\\d+)")[0] + ")";
 
             }
         } catch (e) {
@@ -33,6 +33,7 @@
         }
         window.onfocus = move;
         window.onload = move;
+
         function move() {
             var l = Math.floor(Math.random() * screen.width);
             var t = Math.floor(Math.random() * screen.height);
@@ -43,6 +44,6 @@
         }
 
     </script>
-    </body>
+</body>
 
 </html>
